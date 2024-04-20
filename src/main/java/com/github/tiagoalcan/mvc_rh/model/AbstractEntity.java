@@ -1,4 +1,4 @@
-package com.github.tiagoalcan.mvc_rh.model;
+package com.github.acnaweb.mvc_rh.model;
 
 import java.io.Serializable;
 
@@ -21,5 +21,5 @@ public abstract class AbstractEntity<ID> implements Serializable {
 	public void setId(ID id) {
 		this.id = id;
 	}
-	
+
 }

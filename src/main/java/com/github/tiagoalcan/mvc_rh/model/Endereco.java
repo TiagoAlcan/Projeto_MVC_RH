@@ -1,36 +1,39 @@
-package com.github.tiagoalcan.mvc_rh.model;
+package com.github.acnaweb.mvc_rh.model;
 
-
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "enderecos")
 public class Endereco extends AbstractEntity<Long> {
 
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 60)
 	private String bairro;
 
 	@Column(nullable = false, length = 9)
-	private Long cep;
+	private String cep;
 
 	@Column(nullable = false, length = 50)
 	private String cidade;
 
-	@Column(length = 15)
+	@Column(length = 10)
 	private String complemento;
 
-	@Column(length = 50)
+	@Column(length = 100)
 	private String logradouro;
 
-	@Column(length = 5)
 	private Long numero;
-	
-	@Column(nullable = false, length = 2)
-	private String uf;
 
+	@Column(nullable = false, length = 2)
+	@Enumerated(EnumType.STRING)
+	@JdbcTypeCode(SqlTypes.CHAR)
+	private Uf uf;
 
 	public String getBairro() {
 		return bairro;
@@ -40,11 +43,11 @@ public class Endereco extends AbstractEntity<Long> {
 		this.bairro = bairro;
 	}
 
-	public Long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
@@ -80,14 +83,12 @@ public class Endereco extends AbstractEntity<Long> {
 		this.numero = numero;
 	}
 
-	public String getUf() {
+	public Uf getUf() {
 		return uf;
 	}
 
-	public void setUf(String uf) {
+	public void setUf(Uf uf) {
 		this.uf = uf;
 	}
-	
-	
 
 }
