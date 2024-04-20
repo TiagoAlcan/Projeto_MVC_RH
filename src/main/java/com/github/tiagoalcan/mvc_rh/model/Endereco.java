@@ -1,5 +1,4 @@
-package com.github.acnaweb.mvc_rh.model;
-
+package com.github.tiagoalcan.mvc_rh.model;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 

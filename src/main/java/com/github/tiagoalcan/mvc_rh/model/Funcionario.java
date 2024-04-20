@@ -1,5 +1,4 @@
-package com.github.acnaweb.mvc_rh.model;
-
+package com.github.tiagoalcan.mvc_rh.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
