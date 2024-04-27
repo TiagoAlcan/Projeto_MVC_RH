@@ -16,7 +16,7 @@ public class Cargo extends AbstractEntity<Long> {
 	@ManyToOne
 	@JoinColumn(name = "id_departamento_fk")
 	private Departamento departamento;
-
+	
 	public String getNome() {
 		return nome;
 	}
