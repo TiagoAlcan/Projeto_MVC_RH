@@ -11,28 +11,8 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm bg-light">
-            <div class="container">
-                <span class="navbar-brand mb-0 h1" href="#">BOTCHA Inc</span>
-                <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a>
-            </div>
-        </nav>
-    </header>
-    <div class="menu" id="menu">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.uol.com.br">UOL</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.globo.com">Globo</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+    <div th:replace="layout/header :: headerFragment"></div>
+    <div th:replace="layout/menu :: menuFragment"></div>
     <div class="content" id="content">
         What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
@@ -43,9 +23,7 @@
         of Lorem Ipsum.
     </div>
 
-    <footer id="footer" class="footer text-center">
-        &copy; 2024 Turma de Microservices
-    </footer>
+    <div th:replace="layout/footer :: footerFragment"></div>
 </body>
 
 </html>

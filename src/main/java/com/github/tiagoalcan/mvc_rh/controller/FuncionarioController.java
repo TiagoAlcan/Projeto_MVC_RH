@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("funcionarios")
 public class FuncionarioController {
 
-	@GetMapping("list")
+	//@GetMapping vazio para trazer lista é uma boa prática(tela inicial)
+	
+	@GetMapping()
 	public String list() {
 		return "funcionario/list";
 	}

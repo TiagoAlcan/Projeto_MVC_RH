@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionarios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Listagem de Funcionarios</h1>
+    <div th:replace="layout/header :: headerFragment"></div>
+    <div th:replace="layout/menu :: menuFragment"></div>
 
-        <button class="btn btn-primary btn-sm">Novo</button>
+    <div class="content" id="content">
+        <div class="container">
+            <h3>Listagem de Funcionarios</h3>
 
-        <table class="table table-hover table-sm">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Salário</th>
-                    <th>Cidade/UF</th>                  
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Pelé</td>
-                    <td>R$5.000,00</td>
-                    <td>São Paulo/SP</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Messi</td>
-                    <td>R$50.000,00</td>
-                    <td>Fortaleza/CE</td>
-                </tr>
-            </tbody>
+            <a href="funcionarios/form" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Salário</th>
+                        <th>Cidade/UF</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Pelé</td>
+                        <td>R$5.000,00</td>
+                        <td>São Paulo/SP</td>
+                        <td>
+                            <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
+                            <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Messi</td>
+                        <td>R$50.000,00</td>
+                        <td>Fortaleza/CE</td>
+                        <td>
+                            <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
+                            <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
 
 
-        </table>
-        
+            </table>
+        </div>
+
     </div>
+    <div th:replace="layout/footer :: footerFragment"></div>
 </body>
+
 </html>
