@@ -34,27 +34,12 @@
                 	<tr th:each="funcionario : ${funcionarios}">
                         <td th:text="${funcionario.id}"></td>
                         <td th:text="${funcionario.nome}"></td>
-                    </tr>
-                	
-                    <tr>
-                        <td>1</td>
-                        <td>Pelé</td>
-                        <td>R$5.000,00</td>
-                        <td>São Paulo/SP</td>
-                        <td>
-                            <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                            <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Messi</td>
-                        <td>R$50.000,00</td>
-                        <td>Fortaleza/CE</td>
-                        <td>
-                            <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                            <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                        </td>
+                       	<td></td>
+                       	<td></td>
+                       	<td>
+                       		<a class="btn-sm btn-primary" th:href="@{/funcionarios/update/{id}(id=${funcionario.id})}"><i class="fas fa-edit"></i></a>
+                            <a class="btn-sm btn-danger" th:href="@{/funcionarios/delete/{id}(id=${funcionario.id})}"><i class="	fas fa-minus"></i></a>
+                       	</td>
                     </tr>
                 </tbody>
 

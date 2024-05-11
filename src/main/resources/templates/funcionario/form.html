@@ -18,8 +18,8 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text">Id</div>
                 </div>
-                <!-- *{} atributos de um objeto -->
-                <input type="text" class="form-control" id="id" th:field="*{id}">
+                <!-- *{} atributos de um objeto | readonly - atributo apenas para leitura -->
+                <input type="text" class="form-control" id="id" th:field="*{id}" readonly>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -104,7 +104,7 @@
                 </select>        
 -->
             <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
-            <button class="btn btn-sm">Cancelar</button>
+            <a th:href="@{/funcionarios}" class="btn btn-secondary btn-sm">Cancelar</a>
         </form>
         
     </div>
