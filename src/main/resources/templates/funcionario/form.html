@@ -10,23 +10,26 @@
 <body>
     <div class="container">
         <h1>Cadastro de Funcionarios</h1>
-
-        <form>
+		<!-- antes do /funcionarios/save voce pega o nome da aplicação, se não tiver nome usa-se o localhost -->
+		<!-- th:object pega o funcionario do save da controller -->
+        <form th:action="@{/funcionarios/save}" th:object="${funcionario}" method="post">
             <div class="input-group mb-3">
 
                 <div class="input-group-prepend">
                     <div class="input-group-text">Id</div>
                 </div>
-                <input type="text" class="form-control" id="id">
+                <!-- *{} atributos de um objeto -->
+                <input type="text" class="form-control" id="id" th:field="*{id}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <div class="input-group-text">Nome</div>
                 </div>
-                <input type="text" class="form-control" id="nome">
+                <input type="text" class="form-control" id="nome" th:field="*{nome}">
             </div>
 
-            <!--id de cada input deve seguir o mesmo de cada classe referenciada-->
+<!--
+            //id de cada input deve seguir o mesmo de cada classe referenciada
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <div class="input-group-text">Data de Entrada</div>
@@ -41,8 +44,8 @@
                 <input type="date" class="form-control" id="dataSaida">
             </div>
             
-            <!--quando for um valor numérico, deixe como um texto e faça uma validação do valor e da formatação-->
-            <!--da para fazer a validação tanto no back quanto no front-->
+            //quando for um valor numérico, deixe como um texto e faça uma validação do valor e da formatação
+            //da para fazer a validação tanto no back quanto no front
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <div class="input-group-text">Salário</div>
@@ -98,8 +101,9 @@
                   <option value="SP">São Paulo</option>
                   <option value="RJ">Rio de Janeiro</option>
                   <option value="MG">Minas Gerais</option>
-                </select>
-            <button class="btn btn-primary btn-sm">Confirmar</button>
+                </select>        
+-->
+            <button type="submit" class="btn btn-primary btn-sm">Confirmar</button>
             <button class="btn btn-sm">Cancelar</button>
         </form>
         

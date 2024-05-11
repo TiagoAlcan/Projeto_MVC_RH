@@ -18,7 +18,7 @@
         <div class="container">
             <h3>Listagem de Funcionarios</h3>
 
-            <a href="funcionarios/form" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+            <a href="funcionarios/add" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
 
             <table class="table table-hover table-sm">
                 <thead>
@@ -31,6 +31,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                	<tr th:each="funcionario : ${funcionarios}">
+                        <td th:text="${funcionario.id}"></td>
+                        <td th:text="${funcionario.nome}"></td>
+                    </tr>
+                	
                     <tr>
                         <td>1</td>
                         <td>Pelé</td>
