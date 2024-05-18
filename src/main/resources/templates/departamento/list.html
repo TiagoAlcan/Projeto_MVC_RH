@@ -16,7 +16,7 @@
     <div class="container">
         <h3>Listagem de Departamentos</h3>
 
-        <a href="departamentos/form" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+        <a href="departamentos/add" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
 
         <table class="table table-hover table-sm">
             <thead>
@@ -27,38 +27,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Recursos Humanos</td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Financeiro</td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Vendas</td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Faturamento</td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
+                <tr th:each="departamento : ${departamentos}">
+                        <td th:text="${departamento.id}"></td>
+                        <td th:text="${departamento.nome}"></td>
+                       	<td>
+                       		<a class="btn-sm btn-primary" th:href="@{/departamentos/update/{id}(id=${departamento.id})}"><i class="fas fa-edit"></i></a>
+                            <a class="btn-sm btn-danger" th:href="@{/departamentos/delete/{id}(id=${departamento.id})}"><i class="	fas fa-minus"></i></a>
+                       	</td>
+                    </tr>
             </tbody>
 
 
