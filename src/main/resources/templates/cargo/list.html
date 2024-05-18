@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cargos</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+	rel="stylesheet">
 </head>
 <body>
 
-    <div th:replace="layout/header :: headerFragment"></div>
-    <div th:replace="layout/menu :: menuFragment"></div>
+	<div th:replace="layout/header :: headerFragment"></div>
+	<div th:replace="layout/menu :: menuFragment"></div>
 
-    <div class="content" id="content">
-    <div class="container">
-        <h3>Listagem de Cargos</h3>
+	<div class="content" id="content">
+		<div class="container">
+			<h3>Listagem de Cargos</h3>
 
-        <a href="cargos/form" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
+			<a href="cargos/add" class="btn-sm btn-primary"><i class="fas fa-plus"></i></a>
 
-        <table class="table table-hover table-sm">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Cargo</th>
-                    <th>Departamento</th> 
-                    <th>Ações</th>              
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Desenvolvedor</td>
-                    <td></td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Scrum Master</td>
-                    <td></td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>DBA</td>
-                    <td></td>
-                    <td>
-                        <a class="btn-sm btn-primary" href="/funcionarios/update"><i class="fas fa-plus"></i></a>
-                        <a class="btn-sm btn-danger" href="/funcionarios/delete"><i class="	fas fa-minus"></i></a>
-                    </td>
-                </tr>
-            </tbody>
+			<table class="table table-hover table-sm">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Cargo</th>
+						<th>Departamento</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cargo : ${cargos}">
+                        <td th:text="${cargo.id}"></td>
+                        <td th:text="${cargo.nome}"></td>
+                        <td th:text="${cargo.departamento != null ? cargo.departamento.nome : null}"></td>
+                       	<td>
+                       		<a class="btn-sm btn-primary" th:href="@{/cargos/update/{id}(id=${cargo.id})}"><i class="fas fa-edit"></i></a>
+                            <a class="btn-sm btn-danger" th:href="@{/cargos/delete/{id}(id=${cargo.id})}"><i class="fas fa-minus"></i></a>
+                       	</td>
+                    </tr>
+				</tbody>
 
 
-        </table>
-        
-    </div>
-</div>
-<div th:replace="layout/footer :: footerFragment"></div>
+			</table>
+
+		</div> 
+	</div>
+	<div th:replace="layout/footer :: footerFragment"></div>
 </body>
 </html>
