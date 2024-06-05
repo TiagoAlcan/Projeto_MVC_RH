@@ -9,10 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div th:replace="layout/header :: headerFragment"></div>
-    <div th:replace="layout/menu :: menuFragment"></div>
+<div th:replace="layout/header :: headerFragment"></div>
+<div th:replace="layout/menu :: menuFragment"></div>
 
-    <div class="content" id="content">
+<div id="content">
     <div class="container">
         <h3>Listagem de Departamentos</h3>
 
@@ -20,28 +20,27 @@
 
         <table class="table table-hover table-sm">
             <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Departamento</th>
-                    <th>Ações</th>                
-                </tr>
+            <tr>
+                <th>Id</th>
+                <th>Departamento</th>
+                <th>Ações</th>
+            </tr>
             </thead>
             <tbody>
-                <tr th:each="departamento : ${departamentos}">
-                        <td th:text="${departamento.id}"></td>
-                        <td th:text="${departamento.nome}"></td>
-                       	<td>
-                       		<a class="btn-sm btn-primary" th:href="@{/departamentos/update/{id}(id=${departamento.id})}"><i class="fas fa-edit"></i></a>
-                            <a class="btn-sm btn-danger" th:href="@{/departamentos/delete/{id}(id=${departamento.id})}"><i class="	fas fa-minus"></i></a>
-                       	</td>
-                    </tr>
+            <tr th:each="departamento : ${departamentos}">
+                <td th:text="${departamento.id}"></td>
+                <td th:text="${departamento.nome}"></td>
+                <td>
+                    <a class="btn-sm btn-primary" th:href="@{/departamentos/update/{id}(id=${departamento.id})}"><i class="fas fa-edit"></i></a>
+                    <a class="btn-sm btn-danger" th:href="@{/departamentos/delete/{id}(id=${departamento.id})}"><i class="fas fa-minus"></i></a>
+                </td>
+            </tr>
             </tbody>
-
-
         </table>
-        
+
     </div>
 </div>
+
 <div th:replace="layout/footer :: footerFragment"></div>
 </body>
 </html>

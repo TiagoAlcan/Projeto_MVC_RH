@@ -16,7 +16,7 @@ public class Cargo extends AbstractEntity<Long> {
 	@ManyToOne
 	@JoinColumn(name = "id_departamento_fk")
 	private Departamento departamento;
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -32,7 +32,5 @@ public class Cargo extends AbstractEntity<Long> {
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
-	
-	
-
 }
+

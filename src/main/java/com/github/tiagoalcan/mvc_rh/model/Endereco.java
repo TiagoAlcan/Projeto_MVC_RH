@@ -27,7 +27,7 @@ public class Endereco extends AbstractEntity<Long> {
 
 	@Column(length = 100)
 	private String logradouro;
-	
+
 	@OneToOne(mappedBy = "endereco")
 	private Funcionario funcionario;
 
@@ -102,5 +102,6 @@ public class Endereco extends AbstractEntity<Long> {
 		this.funcionario = funcionario;
 	}
 
-	
+
+
 }

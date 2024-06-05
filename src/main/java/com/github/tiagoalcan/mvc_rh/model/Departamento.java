@@ -9,11 +9,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "departamentos")
-public class Departamento  extends AbstractEntity<Long> {
+public class Departamento extends AbstractEntity<Long> {
 
 	@Column(nullable = false, length = 60, unique = true)
 	private String nome;
-	
+
 	@OneToMany(mappedBy = "departamento")
 	private List<Cargo> cargos;
 
@@ -33,5 +33,4 @@ public class Departamento  extends AbstractEntity<Long> {
 		this.cargos = cargos;
 	}
 
-	
 }
